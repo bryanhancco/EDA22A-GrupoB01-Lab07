@@ -23,6 +23,15 @@ public class HashSondeo<K, V>{
     return hashCode;
   }
 
+  public int size(){
+    int counter = 0;
+    for (Node entry : this.entries){
+      if (!(entry == null))
+        counter++;
+    }
+    return counter;
+  }
+
   private int fixCollisionLinearSounding (int position){
     if (!(this.entries[position] == null)){
       return fixCollisionLinearSounding((position + 1) % INITIAL_SIZE);
