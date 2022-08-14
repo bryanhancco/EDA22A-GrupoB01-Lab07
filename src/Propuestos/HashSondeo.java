@@ -9,13 +9,17 @@ public class HashSondeo<K, V>{
     entries = new Node [INITIAL_SIZE];
   }
 
+  public V get(K key){
+    return this.entries[searchCollisionLinearSounding(key.hashCode() % INITIAL_SIZE, key)].getValue();
+  }
+
   private int fixCollisionLinearSounding (int position){
     if (!(this.entries[position] == null)){
       return fixCollisionLinearSounding((position + 1) % INITIAL_SIZE);
     }
     return position;
   }
-  
+
   private int searchCollisionLinearSounding (int position, K key){
     if (!(this.entries[position].getKey().equals(key))){
       return searchCollisionLinearSounding((position + 1) % INITIAL_SIZE, key);
