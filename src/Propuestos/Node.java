@@ -7,6 +7,10 @@ public class Node<K, V> {
     this.value = value;
   }
 
+  public boolean equals(Node<K, V> obj) {
+    return false;
+  }
+
   public String toString() {
     return "[" + "K=" + key + "; V=" + value + "]";
   }
