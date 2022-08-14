@@ -8,4 +8,11 @@ public class HashSondeo<K, V>{
     this.INITIAL_SIZE = INITIAL_SIZE;
     entries = new Node [INITIAL_SIZE];
   }
+
+  private int fixCollisionLinearSounding (int position){
+    if (!(this.entries[position] == null)){
+      return fixCollisionLinearSounding((position + 1) % INITIAL_SIZE);
+    }
+    return position;
+  }
 }
