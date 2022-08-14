@@ -1,14 +1,23 @@
 package Propuestos;
+
 public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> implements HashTable {
 		private Node<K, V>[] elements;
-		int cont;
+		private int cont;
+
+		public HashSondeo() {
+			this(11);
+		}
+		public HashSondeo(int len) {
+			this.elements = (Node<K, V>) new Object[len];
+			this.cont = 0;
+		}
     /**
      * Retorna el numero de clave-valor registrado en la tabla hash.
      *
      * @return Retorna el numero de clave-valor registros en la tabla hash.
      */
     public int size() {
-				return 0;
+			return 0;
 		}
 
     /**
@@ -17,7 +26,7 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> imple
      * @return {@code true} si la tabla hash no contiene registros.
      */
     public boolean isEmpty() {
-				return false;
+			return this.cont == 0;
 		}
 
     /**
@@ -29,8 +38,18 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> imple
      * @throws NullPointerException si la clave es null
      * (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
      */
-    public boolean containsKey(Object key) {
-				return false;
+    public boolean containsKey(K key) {
+			if (key == null || this.cont == 0)
+				throw new NullPointerException();
+			int index = functionHash(key.hashCode);
+			int c = index;
+			do {
+				c = functionHash(c);
+				if (this.elements[i].getKey().equals(key))
+					return true;
+				c++;
+			} while(c != index);
+			return false;
 		}
 
     /**
@@ -42,8 +61,13 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> imple
      * @throws NullPointerException si el valor es null
      * (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
      */
-    public boolean containsValue(Object value) {
-				return false;
+    public boolean containsValue(V value) {
+			if (value == null || this.cont == 0)
+				throw new NullPointerException();
+			for (Node<K, V> node : this.elements)
+				if (node.getValue().equals(value))
+					return true;
+			return false;
 		}
 
     /**
@@ -56,7 +80,7 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> imple
      * (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
      */
     public Integer get(K key) {
-				return null;
+			return null;
 		}
 
 
@@ -74,7 +98,7 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> imple
      * @throws ErrorException para otros tipos de error
      */
     public Integer put(K key, V value) {
-				return null;
+			return null;
 		}
 
     /**
@@ -88,7 +112,19 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> imple
      * (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
      */
     public Integer remove(K key) {
-				return null;
+			if (key == null || this.cont == 0)
+				throw new NullPointerException();
+			int index = functionHash(key.hashCode);
+			int c = index;
+			do {
+				c = functionHash(c);
+				if (this.elements[i].getKey().equals(key)) {
+					this.elements[i] = null;
+					return c;
+				}
+				c++;
+			} while(c != index);
+			return null;
 		}
 
     /**
@@ -96,7 +132,10 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> imple
      * La tabla hash estara vacia despues de llamar a este metodo.
      */
     public void clear() {
-				
+			for (Node<K, V> node : this.elements) {
+				if (node == null) continue;
+				node = null;
+			}
 		}
 
     /**
@@ -106,6 +145,9 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> imple
      * es decir, implica que {@code tablaHash1.hashCode() == tablaHash2.hashCode()} para cualquier par de
      * tablas {@code tablaHash1} and {@code tablaHash2},
      */
+		public int functionHash(int hashCode) {
+			return (hashCode) % this.elements.length;
+		}
     public int hashCode() {
 				return 0;
 		}

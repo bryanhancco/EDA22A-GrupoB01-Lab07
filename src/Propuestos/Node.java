@@ -1,3 +1,5 @@
+package Propuestos;
+
 public class Node<K, V> {
   //Atributos
   private K key;
