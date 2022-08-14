@@ -1,38 +1,34 @@
-package Propuestos;
-
 public class Node<K, V> {
-  //Atributos
-  private K key;
-  private V value;
-  
-  //Constructor
+  K key;
+  V value;
+
   public Node(K key, V value) {
-      this.key = key;
-      this.value = value;
+    this.key = key;
+    this.value = value;
   }
-  
-  //Setter y Getter
+
+  // Setter y Getter de atributos
   public K getKey() {
-      return key;
+    return key;
   }
 
   public void setKey(K key) {
-      this.key = key;
+    this.key = key;
   }
+
   public V getValue() {
-      return value;
+    return value;
   }
 
   public void setValue(V value) {
-      this.value = value;
+    this.value = value;
   }
+
   public boolean equals(Node<K, V> obj) {
-			return this.key.equals(obj.getKey());
+    return false;
   }
 
-  @Override
   public String toString() {
-      return "<" + "key= " + key +", value= " + value + ">";
+    return "[" + "K=" + key + "; V=" + value + "]";
   }
-
 }
