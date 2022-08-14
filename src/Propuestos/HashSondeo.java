@@ -15,4 +15,11 @@ public class HashSondeo<K, V>{
     }
     return position;
   }
+  
+  private int searchCollisionLinearSounding (int position, K key){
+    if (!(this.entries[position].getKey().equals(key))){
+      return searchCollisionLinearSounding((position + 1) % INITIAL_SIZE, key);
+    }
+    return position;
+  }
 }
