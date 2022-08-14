@@ -43,6 +43,19 @@ public class HashSondeo<K, V>{
     return str;
   }
 
+  public boolean containsKey(Object key){
+    return false;
+  }
+
+  public void put(K key, V value){
+    if (containsKey(key)){
+      System.out.println("La clave ya fue insertada");
+      return;
+    }
+    Node<K,V> newNode = new Node<K,V>(key, value);
+    this.entries[fixCollisionLinearSounding(key.hashCode() % INITIAL_SIZE)] = newNode;
+  }
+
   private int fixCollisionLinearSounding (int position){
     if (!(this.entries[position] == null)){
       return fixCollisionLinearSounding((position + 1) % INITIAL_SIZE);
