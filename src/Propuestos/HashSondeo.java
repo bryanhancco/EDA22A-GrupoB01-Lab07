@@ -32,6 +32,17 @@ public class HashSondeo<K, V>{
     return counter;
   }
 
+  public String toString(){
+    String str = "";
+    str += "[";
+    for (Node entry : this.entries){
+      if (!(entry == null))
+        str += entry;
+    }
+    str += "]";
+    return str;
+  }
+
   private int fixCollisionLinearSounding (int position){
     if (!(this.entries[position] == null)){
       return fixCollisionLinearSounding((position + 1) % INITIAL_SIZE);
