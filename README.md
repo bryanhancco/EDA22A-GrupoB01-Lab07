@@ -198,7 +198,7 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 II. CONCLUSIONES
 	
 - Una tabla hash tiene como principal ventaja que el acceso a los datos suele ser muy rápido, sin importar su tamaño
-- Al llegar a tener un factor de carga superior al 5% se vuelven inficientes.
+- Al llegar a tener un factor de carga superior al 75% se vuelven inficientes.
 - Se puede aplicar en como un diccionarios ya que ofrece un tiempo de busqueda muy reducido
 - Otra potencial aplicacion es administrar elementos de configuración en archivos de configuración Los elementos de configuración son pares clave-valor típicos.
 
