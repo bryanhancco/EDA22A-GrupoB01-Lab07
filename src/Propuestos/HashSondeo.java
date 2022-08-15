@@ -9,8 +9,7 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> {
 	}
 	public HashSondeo(int len) {
 		this.INITIAL_SIZE = len;
-		this.entries = (Node<K, V>) new Object[INITIAL_SIZE];
-		this.cont = 0;
+		this.entries = (Node<K, V>) new Object[];
 	}
 
   public int size() {
@@ -23,17 +22,17 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> {
 	}
 
   public boolean isEmpty() {
-		return this.cont == 0;
+		return size() == 0;
 	}
 
   public boolean containsKey(K key) {
-		if (key == null || this.cont == 0)
+		if (key == null || isEmpty())
 			throw new NullPointerException();
-		int index = functionHash(key.hashCode);
+		int index = functionHash(key.hashCode());
 		int c = index;
 		do {
 			c = functionHash(c);
-			if (this.elements[i].getKey().equals(key))
+			if (this.entries[c].getKey().equals(key))
 				return true;
 			c++;
 		} while(c != index);
@@ -41,37 +40,36 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> {
 	}
 
   public boolean containsValue(V value) {
-		if (value == null || this.cont == 0)
+		if (value == null || isEmpty())
 			throw new NullPointerException();
-		for (Node<K, V> node : this.elements)
+		for (Node<K, V> node : this.entries)
 			if (node.getValue().equals(value))
 				return true;
 		return false;
 	}
 
-  public Integer get(K key) {
+  public V get(K key) {
    	return this.entries[searchCollisionLinearSounding(key.hashCode() % INITIAL_SIZE, key)].getValue();
 	}
 
-  public Integer put(K key, V value) {
+  public void put(K key, V value) {
    	if (containsKey(key)){
      	System.out.println("La clave ya fue insertada");
     	return;
   	}
   	Node<K,V> newNode = new Node<K,V>(key, value);
   	this.entries[fixCollisionLinearSounding(key.hashCode() % INITIAL_SIZE)] = newNode;
-			return null;
 	}
 
   public Integer remove(K key) {
-		if (key == null || this.cont == 0)
+		if (key == null || isEmpty())
 			throw new NullPointerException();
-		int index = functionHash(key.hashCode);
+		int index = functionHash(key.hashCode());
 		int c = index;
 		do {
 			c = functionHash(c);
-			if (this.elements[i].getKey().equals(key)) {
-				this.elements[i] = null;
+			if (this.entries[c].getKey().equals(key)) {
+				this.entries[c] = null;
 				return c;
 			}
 			c++;
@@ -80,14 +78,14 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> {
 	}
 
   public void clear() {
-		for (Node<K, V> node : this.elements) {
+		for (Node<K, V> node : this.entries) {
 			if (node == null) continue;
 			node = null;
 		}
 	}
 
 	public int functionHash(int hashCode) {
-		return (hashCode) % this.elements.length;
+		return (hashCode) % this.entries.length;
 	}
 
   public int hashCode() {
@@ -111,18 +109,15 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> {
     return str;
 	}
 
-}
-  private int fixCollisionLinearSounding (int position){
-    if (!(this.entries[position] == null)){
+  private int fixCollisionLinearSounding(int position){
+    if (!(this.entries[position] == null))
       return fixCollisionLinearSounding((position + 1) % INITIAL_SIZE);
-    }
     return position;
   }
 
-  private int searchCollisionLinearSounding (int position, K key){
-    if (!(this.entries[position].getKey().equals(key))){
+  private int searchCollisionLinearSounding(int position, K key){
+    if (!(this.entries[position].getKey().equals(key)))
       return searchCollisionLinearSounding((position + 1) % INITIAL_SIZE, key);
-    }
     return position;
   }
 }
