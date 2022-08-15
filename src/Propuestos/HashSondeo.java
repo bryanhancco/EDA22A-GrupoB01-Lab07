@@ -1,14 +1,15 @@
 package Propuestos;
 
 public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> implements HashTable {
-		private Node<K, V>[] elements;
-		private int cont;
+		private final int INITIAL_SIZE;
+		private Node<K, V>[] entries;
 
-		public HashSondeo() {
+		public HashSondeo(int INITIAL_SIZE) {
 			this(11);
 		}
 		public HashSondeo(int len) {
-			this.elements = (Node<K, V>) new Object[len];
+			this.INITIAL_SIZE = INITIAL_SIZE;
+			this.entries = (Node<K, V>) new Object[len];
 			this.cont = 0;
 		}
     /**
