@@ -84,14 +84,18 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 		public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> {
 			private final int INITIAL_SIZE;		//la capacidad del arreglo
 			private Node<K, V>[] entries;		//Arreglo de nodos
-			
 			...
 		}
 	    ```
 	- Lo que hace especial a este Hash es como resuelve los conflictos, de manera que, los métodos que se ven afectados son
 	    ```java
-		public Integer get(K key) {...}
-		public Integer put(K key, V value) {...}
+		public V get(K key) 
+			return this.entries[searchCollisionLinearSounding(key.hashCode() % INITIAL_SIZE, key)].getValue();
+		}
+		public void put(K key, V value) {
+			Node<K,V> newNode = new Node<K,V>(key, value);
+			this.entries[fixCollisionLinearSounding(key.hashCode() % INITIAL_SIZE)] = newNode;
+		}
 		public Integer remove(K key) {...}
 	    ```
 	- El manejo de los conflictos por cada uno de los métodos es relativamente similar es así que, tomando como ejemplo al desarrollo de
@@ -117,9 +121,24 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 	- Y entonces obtendremos el valor que buscamos
 	- El proceso de eliminación <code>remove()</code>, realiza basicamente el mismo proceso que <code>get()</code>, con la única excepción
 	  de eliminar el nodo al final
-	  	![imagen](hashSondeo/remove/1.png)
 	  	![imagen](hashSondeo/remove/2.png)
 	  	![imagen](hashSondeo/remove/3.png)
+	  	![imagen](hashSondeo/remove/4.png)
+	- Como métodos adicionales, se agregaron a <code>fixCollisionLinearSounding</code> y <code>searchCollisionLinearSounding</code>, métodos
+	  recursivos que solucionaban los casos de colision
+	    ```java
+		  private int fixCollisionLinearSounding(int position){
+		    if (!(this.entries[position] == null))
+		      return fixCollisionLinearSounding((position + 1) % INITIAL_SIZE);
+		    return position;
+		  }
+
+		  private int searchCollisionLinearSounding(int position, K key){
+		    if (!(this.entries[position].getKey().equals(key)))
+		      return searchCollisionLinearSounding((position + 1) % INITIAL_SIZE, key);
+		    return position;
+		  }
+	    ```
   - Implementación de un Hash por Encadenamiento.
   Para la clase HashEncadenamiento se puede resaltar la forma en la que se manejan las coliciones tal y como se menciona en el *topico 2 de la practica* , es por ello que podemos destacar los siguientes metodos:
     ```java
