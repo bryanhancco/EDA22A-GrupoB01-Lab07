@@ -168,6 +168,10 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
      }
      ```
     - En este metodo se busca el registro de la clave , y luego se busca el Nodo en la lista enlazada para desenlazarlo, en caso no se encuentre se lanza una exepcion.
+    - El encadenamiento tiene ventajas pues facilita el borrado de datos de la tabla. Consiste en encontrar la casilla correcta y agregar al final de la lista correspondiente. Esto también es llamado Hash abierto
+    
+    ![image](https://user-images.githubusercontent.com/85516522/184575430-9a728b7c-0a30-4d02-a333-2adc9b6ec252.png)
+
   -  Test, para realizar las pruebas necesarias
      ```java
 	 //Código resaltante
