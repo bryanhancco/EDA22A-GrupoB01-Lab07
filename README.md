@@ -196,9 +196,11 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
      - ![image](https://user-images.githubusercontent.com/85516522/184577590-0ba9e975-60d9-47ed-941b-6a362fb86349.png)
      - ![image](https://user-images.githubusercontent.com/85516522/184577610-a02d6f77-66b5-4c38-99cf-62d1cc9c0c8f.png)
 	
-  -En las dos siguientes capturas se creó una app para verificar el uso del Hash encadenado
+  -En las dos siguientes capturas se creó una app para verificar el uso del Hash encadenado y hash de sondeo
      - ![image](https://user-images.githubusercontent.com/85516522/184577616-809bfa6f-10bf-455c-83d6-d4db12cc1ed8.png)
      - ![image](https://user-images.githubusercontent.com/85516522/184577629-5bfdb9f8-d792-4f5b-91d2-c30bc73e1924.png)
+     - ![imagen](https://user-images.githubusercontent.com/90292110/184578515-24b9cc13-6408-417b-b31b-a1bb38ca9857.png)
+
 
 II. CONCLUSIONES
 	
