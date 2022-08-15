@@ -169,8 +169,12 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
      ```
     - En este metodo se busca el registro de la clave , y luego se busca el Nodo en la lista enlazada para desenlazarlo, en caso no se encuentre se lanza una exepcion.
   -  Test, para realizar las pruebas necesarias
+       ![imagen](imgt/pic1.png)
+       ![imagen](imgt/pic2.png)
+       ![imagen](imgt/pic3.png)
+       ![imagen](imgt/pic4.png)
      ```java
-	 //Código resaltante
+
      ```
 II. CONCLUSIONES
 	
