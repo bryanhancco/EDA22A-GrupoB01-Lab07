@@ -75,7 +75,7 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 	    │   └── TestSondeo.java
 	    └── User.java
     ```
-  * **Nota :** Para los ver los ejercicios propuestos deberá compilar y ejecutar "Test.java".
+  * **Nota :** Para los ver los ejercicios propuestos (los 4 topicos solicitados) deberá compilar y ejecutar "TestSEncadenado.java" o "TestSonde.java" segun corresponda, a continuacion se explicara la implementacion del Hash y de los topicos solicidados.
 * Debido a que este laboratorio consistia principalmente en la implementación del Hash, se desarrollaron los dos tipos especificados, en clases separadas
   y en base a los métodos propuestos por la interfaz HashTable. El desarrollo es el siguiente.
   - Implementación de un Hash por Sondeo Lineal (<code>HashSondeo.java</code>).
