@@ -84,7 +84,7 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
   - Implementación de un Hash por Sondeo Lineal (<code>HashSondeo.java</code>).
 	- Desarrollo inicial, se agregan 2 atributos, que son la capacidad del arreglo y el arreglo de nodos en sí
 	    ```java
-		public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> implements HashTable {
+		public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> {
 			private final int INITIAL_SIZE;		//la capacidad del arreglo
 			private Node<K, V>[] entries;		//Arreglo de nodos
 			
