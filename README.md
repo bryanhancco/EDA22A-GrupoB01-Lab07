@@ -79,22 +79,58 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 	└── Test.java
     ```
   * **Nota :** Para los ver los ejercicios propuestos deberá compilar y ejecutar "Test.java".
-* **Ejercicio 1:**
-	```java
+* Debido a que este laboratorio consistia principalmente en la implementación del Hash, se desarrollaron los dos tipos especificados, en clases separadas
+  y en base a los métodos propuestos por la interfaz HashTable. El desarrollo es el siguiente.
+  - Implementación de un Hash por Sondeo Lineal (<code>HashSondeo.java</code>).
+	- Desarrollo inicial, se agregan 2 atributos, que son la capacidad del arreglo y el arreglo de nodos en sí
+	    ```java
+		public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> implements HashTable {
+			private final int INITIAL_SIZE;		//la capacidad del arreglo
+			private Node<K, V>[] entries;		//Arreglo de nodos
+			
+			...
+		}
+	    ```
+	- Lo que hace especial a este Hash es como resuelve los conflictos, de manera que, los métodos que se ven afectados son
+	    ```java
+		public Integer get(K key) {...}
+		public Integer put(K key, V value) {...}
+		public Integer remove(K key) {...}
+	    ```
+	- El manejo de los conflictos por cada uno de los métodos es relativamente similar es así que, tomando como ejemplo al desarrollo de
+	  <code>put()</code> vemos lo siguiente
+	  	![imagen](hashSondeo/insert/1.png)
+	- Insertando 1ro el nodo ABC1, no ocurren conflictos, por ende, la inserción es directa
+		![imagen](hashSondeo/insert/2.png)
+	- Insertando ahora al nodo AEI2, tampoco ocurren conflictos, por ende, la inserción es directa
+		![imagen](hashSondeo/insert/3.png)
+		![imagen](hashSondeo/insert/4.png)
+	- Sin embargo, insertando el nodo MNP3, *SI* ocurren conflictos, por ende, la inserción *NO* es directa
+		![imagen](hashSondeo/insert/5.png)
+	- Realizando el proceso de Sondeo Lineal, el nuevo indice pasa a ser 3
+		![imagen](hashSondeo/insert/6.png)
+	- Ya no ocurren conflictos, de manera que ahora el proceso es directo
+		![imagen](hashSondeo/insert/7.png)
+	- Ahora, con el proceso de <code>get()</code>, suceden procesos similares, pues por ejemplo.
+	- Basandonos en la estructura desarrollada previamente, buscamos al nodo MNP3, realizada la funcion de hash, nos devolverá el indice 2,
+	  indice que no corresponde
+		![imagen](hashSondeo/get/1.png)
+	- Por ende, tambien es necesario el proceso de Sondeo Lineal
+		![imagen](hashSondeo/get/2.png)
+	- Y entonces obtendremos el valor que buscamos
+	- El proceso de eliminación <code>remove()</code>, realiza basicamente el mismo proceso que <code>get()</code>, con la única excepción
+	  de eliminar el nodo al final
+	  	![imagen](hashSondeo/remove/1.png)
+	  	![imagen](hashSondeo/remove/2.png)
+	  	![imagen](hashSondeo/remove/3.png)
+  - Implementación de un Hash por Encadenamiento.
+    ```java
 	//Código resaltante
-	```
-* **Ejercicio 2:** 
-  ```java
-	//Código resaltante
-	```   
-* **Ejercicio 3:** 
-  ```java
-	//Código resaltante
-	```  
-* **Ejercicio 4:** 
-  ```java
-	//Código resaltante
-	```  
+    ```
+  -  Test, para realizar las pruebas necesarias.
+     ```java
+	 //Código resaltante
+     ```
 II. CONCLUSIONES
 	
 - 
