@@ -1,5 +1,6 @@
 public class Test {
     public static void main(String[] args) {
+    	//Creamos una tabla hash e ingresamos datos
         HashEncadenado<String, Integer> hash = new HashEncadenado<String, Integer>();
         hash.put("a", 1);
         hash.put("b", 2);
@@ -29,5 +30,14 @@ public class Test {
         hash.put("z", 26);
 
         System.out.println(hash.toString());
+        //casos de busqueda
+        System.out.println("¿la tabla hash está vacía?\n" +  hash.isEmpty());
+        System.out.println("¿Se encuentra la clave 'w'?\n" + hash.containsKey("w"));
+        System.out.println("¿Se encuentra la clave 'g'?\n" + hash.containsKey("g"));
+        System.out.println("¿Se encuentra el valor '10'?\n" + hash.containsValue(10));
+        System.out.println("Removiendo la clave t" + hash.remove("t"));
+        System.out.println(hash.toString());
+        System.out.println("Tamaño actual de la tabla hash: "+hash.size());
+        System.out.println("Vemos que el tamaño se redujo en 1");
     }
 }
