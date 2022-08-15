@@ -6,7 +6,7 @@ public class Node<K, V> {
   private V value;
   
   //Constructor
-  public Nodo(K key, V value) {
+  public Node(K key, V value) {
       this.key = key;
       this.value = value;
   }
@@ -26,8 +26,8 @@ public class Node<K, V> {
   public void setValue(V value) {
       this.value = value;
   }
-  public boolean equals(Nodo<K, V> obj) {
-      return false;
+  public boolean equals(Node<K, V> obj) {
+			return this.key.equals(obj.getKey());
   }
 
   @Override
