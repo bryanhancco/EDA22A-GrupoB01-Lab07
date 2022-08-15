@@ -9,7 +9,7 @@ public class HashSondeo <K extends Comparable<K>, V extends Comparable<V>> {
 	}
 	public HashSondeo(int len) {
 		this.INITIAL_SIZE = len;
-		this.entries = (Node<K, V>) new Object[];
+		this.entries = (Node<K, V>[]) new Node[len];
 	}
 
   public int size() {
