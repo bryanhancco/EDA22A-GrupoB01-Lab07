@@ -192,9 +192,11 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
     ![image](https://user-images.githubusercontent.com/85516522/184575430-9a728b7c-0a30-4d02-a333-2adc9b6ec252.png)
 
   -  Test, para realizar las pruebas necesarias
-     ```java
-	 //Código resaltante
-     ```
+     - ![image](https://user-images.githubusercontent.com/85516522/184577590-0ba9e975-60d9-47ed-941b-6a362fb86349.png)
+     - ![image](https://user-images.githubusercontent.com/85516522/184577610-a02d6f77-66b5-4c38-99cf-62d1cc9c0c8f.png)
+     - ![image](https://user-images.githubusercontent.com/85516522/184577616-809bfa6f-10bf-455c-83d6-d4db12cc1ed8.png)
+     - ![image](https://user-images.githubusercontent.com/85516522/184577629-5bfdb9f8-d792-4f5b-91d2-c30bc73e1924.png)
+
 II. CONCLUSIONES
 	
 - Una tabla hash tiene como principal ventaja que el acceso a los datos suele ser muy rápido, sin importar su tamaño
