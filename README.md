@@ -120,9 +120,9 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 	- Y entonces obtendremos el valor que buscamos
 	- El proceso de eliminación <code>remove()</code>, realiza basicamente el mismo proceso que <code>get()</code>, con la única excepción
 	  de eliminar el nodo al final
-	  	![imagen](hashSondeo/remove/1.png)
 	  	![imagen](hashSondeo/remove/2.png)
 	  	![imagen](hashSondeo/remove/3.png)
+	  	![imagen](hashSondeo/remove/4.png)
   - Implementación de un Hash por Encadenamiento.
     ```java
 	//Código resaltante
