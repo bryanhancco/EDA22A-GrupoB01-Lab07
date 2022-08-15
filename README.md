@@ -63,20 +63,17 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 * La organización del repositorio es la siguiente
     ```sh
 	.
-	├── BTree.java
-	├── ejercicio1
-	│   └── ejecucion.jpeg
-	├── ejercicio2
-	│   ├── imagenes
-	│   └── final.png
-	├── ejercicio3
-	│   ├── imagenes
-	│   └── delete8.jpeg
-	├── ejercicio4
-	│   ├── imagenes
-	│   └── insert7.png
 	├── README.md
-	└── Test.java
+	└── src
+	    ├── HashDemo.java
+	    ├── Propuestos
+	    │   ├── HashEncadenado.java
+	    │   ├── HashSondeo.java
+	    │   ├── HashTable.java
+	    │   ├── Node.java
+	    │   ├── TestEncadenado.java
+	    │   └── TestSondeo.java
+	    └── User.java
     ```
   * **Nota :** Para los ver los ejercicios propuestos deberá compilar y ejecutar "Test.java".
 * Debido a que este laboratorio consistia principalmente en la implementación del Hash, se desarrollaron los dos tipos especificados, en clases separadas
