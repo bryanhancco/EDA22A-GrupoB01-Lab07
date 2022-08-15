@@ -120,14 +120,58 @@ I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS <br>
 	- Y entonces obtendremos el valor que buscamos
 	- El proceso de eliminación <code>remove()</code>, realiza basicamente el mismo proceso que <code>get()</code>, con la única excepción
 	  de eliminar el nodo al final
+	  	![imagen](hashSondeo/remove/1.png)
 	  	![imagen](hashSondeo/remove/2.png)
 	  	![imagen](hashSondeo/remove/3.png)
-	  	![imagen](hashSondeo/remove/4.png)
   - Implementación de un Hash por Encadenamiento.
+  Para la clase HashEncadenamiento se puede resaltar la forma en la que se manejan las coliciones tal y como se menciona en el *topico 2 de la practica* , es por ello que podemos destacar los siguientes metodos:
     ```java
-	//Código resaltante
+    if (key != null) {
+      int index = functionHash(Math.abs(key.hashCode()));
+      LinkedList<Node<K, V>> listInPosition = (LinkedList<Node<K, V>>) valores[index];
+      if (listInPosition != null) { // Para verificar que la posicion este inicializada
+        listInPosition.push(new Node<>(key, value));
+      } else { // De otro modo, se inicializa la posicion
+        LinkedList<Node<K, V>> addListInPosition = new LinkedList<Node<K, V>>();
+        addListInPosition.push(new Node<>(key, value));
+        valores[index] = addListInPosition;
+      }
+      size++;
+
+    } else {
+      throw new NullPointerException();
+    }
     ```
-  -  Test, para realizar las pruebas necesarias.
+    
+    - En este metodo se asocia el valor con la clave , si ya existe ese valor  el valor se reemplaza por el nuevo valor y se almacena en una lista enlazada.
+    ```java
+    public V remove(Object key) {
+      if (key != null) {
+        int index = functionHash(key.hashCode());
+
+        LinkedList<Node<K, V>> listInPosition = (LinkedList<Node<K, V>>) valores[index];
+
+        if (listInPosition != null) {
+
+          for (Node<K, V> aux : listInPosition) {
+            if (key.equals(aux.getKey())) {
+              listInPosition.remove(aux);
+              size--;
+              return aux.getValue();
+            }
+          }
+          return null;
+        } else {
+          return null;
+        }
+
+      } else {
+        throw new NullPointerException();
+      }
+     }
+     ```
+    - En este metodo se busca el registro de la clave , y luego se busca el Nodo en la lista enlazada para desenlazarlo, en caso no se encuentre se lanza una exepcion.
+  -  Test, para realizar las pruebas necesarias
      ```java
 	 //Código resaltante
      ```
